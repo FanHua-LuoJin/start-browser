@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>起始！</title>
+    <meta name="description"
+    content="繁华落尽的起始页">
+
+</head>
+
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url(./起始背景.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position:center;
+    }
+    .shi{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #shuRuKuang{
+        border: 0;
+        padding: 5px 0px;
+        max-width: 90%;
+        font-size: 2rem;
+        text-align: center;
+        background: transparent;
+        color: black;
+        border-bottom: 2px solid #66ccff;
+        line-height: 1.5;
+        outline: none;
+    }
+    #anNiu{
+        margin-right: 10px;
+        border-radius: 50%;
+        height: 30px;
+        width: 40px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+</style>
+
+<body>
+    <div class="shi">
+        <input placeholder="你上次做了什么？" id="shuRuKuang" />
+        <span id="anNiu" onclick="change()">✔</span>
+    </div>
+    
+
+
+    <script>
+    let youShi = false;
+
+    function change(){
+        let anNiu= document.getElementById("anNiu")
+        let shuRuKuang=document.getElementById("shuRuKuang")
+
+        if(youShi){
+            youShi=false;
+            anNiu.innerText="✔";
+            shuRuKuang.style.borderBottomColor = "#66ccff";
+            shuRuKuang.value = "";
+            shuRuKuang.readOnly= false;
+            window.localStorage.removeItem("shi",shuRuKuang.value)
+        }else{
+            youShi=true;
+            anNiu.innerText="×";
+            shuRuKuang.style.borderBottomColor = "transparent";
+            shuRuKuang.readOnly = true;
+            window.localStorage.setItem("shi",shuRuKuang.value)
+
+        }
+
+    }
+
+    let data =window.localStorage.getItem('shi')
+    if(data){
+        document.getElementById("shuRuKuang").value=data;
+        change();
+    }
+    </script>
+</body>
+</html>
