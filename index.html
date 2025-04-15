@@ -47,9 +47,30 @@
         cursor: pointer;
     }
 
+    .daohang{
+        z-index: 50;
+        background-color: #66ccff;
+        border: 1px solid;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        line-height: 2em;
+    }
+
 </style>
 
 <body>
+
+    <div class="daohang">
+        <ul>
+        <li><a href="https://www.bilibili.com/" target="_blank">bilibili</a></li>
+        <li><a href="https://www.xiaohongshu.com/explore"  target="_blank">小红书</a></li>
+        <li><a href="https://cn.bing.com/?mkt=zh-cn" target="_blank">必应</a></li>
+        <li><a href="https://chat.deepseek.com/" target="_blank">deepseek</a></li>
+        <li><a href="https://www.sdu.edu.cn/index.htm" target="_blank">山东大学</a></li>
+        </ul>
+        
+    </div>
     <div class="shi">
         <input placeholder="你上次做了什么？" id="shuRuKuang" />
         <span id="anNiu" onclick="change()">✔</span>
